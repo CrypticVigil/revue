@@ -1,0 +1,92 @@
+body {
+	margin: 0;
+	font-family: Roboto, Arial, sans-serif;
+}
+
+/* ---- ---- nav styles ---- ---- */
+nav {
+	height: 60px;
+	line-height: 60px;
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	background-color: #632e99;
+}
+
+.nav-container {
+	width: 1080px;
+	display: flex;
+	justify-content: space-between;
+}
+
+.nav-container ul {
+	list-style-type: none;
+	margin: 0;
+}
+
+.nav-container a {
+	text-decoration: none;
+	color: white;
+}
+
+.nav-container a:hover {
+	text-decoration: underline;
+	color: red;
+}
+
+.logo {
+	font-size: 2rem;
+}
+
+.toppings {
+	list-style-type: none;
+	padding: 0;
+}
+
+/* ---- ---- main content styles ---- ---- */
+
+main {
+	display: flex;
+	justify-content: center;
+	min-height: calc(100vh - 120px);
+}
+
+.main-container {
+	width: 1080px;
+}
+
+.orders-container {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: flex-start;
+}
+
+.pizza-card {
+	border: 1px solid gainsboro;
+	border-radius: 0.5rem;
+	padding: 1rem;
+	margin: 0 1rem 1rem 0;
+	flex-basis: 25%;
+}
+
+.pizza-card h3 {
+	margin: 0 0 0.25rem 0;
+}
+
+.pizza-card ul {
+	margin: 0;
+	padding-left: 1rem;
+}
+
+/* ---- ---- footer styles ---- ---- */
+
+footer {
+	background-color: gainsboro;
+	height: 60px;
+	line-height: 60px;
+	text-align: center;
+}
+
+footer p {
+	margin: 0;
+}
