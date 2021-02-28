@@ -7,7 +7,7 @@
 <body>
 	<nav>
 		<div class="nav-container">
-			<a href="index.php" class="logo">Revue</a>
+			<a href="index.php" class="logo"><img src="revue_logo.svg" alt="revue logo" ></a>
 			<ul>
 				<li><a href="order.php">Add A Movie</a></li>
 			</ul>
