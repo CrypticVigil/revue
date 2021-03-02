@@ -1,11 +1,12 @@
 <?php
 
+// set up a new connection to the server
 include 'db_connect.php';
 
-$sql = "SELECT * FROM movies WHERE id=1";
+// pull the list of movies from the movies table
+$sql = "SELECT * FROM movies";
 $result = mysqli_query($conn, $sql);
-
-$movie = mysqli_fetch_array($result, MYSQLI_ASSOC);
+$movies = mysqli_fetch_all($result, MYSQLI_ASSOC);
 
 ?>
 
@@ -17,8 +18,26 @@ $movie = mysqli_fetch_array($result, MYSQLI_ASSOC);
 
 	<main>
 		<div class="main-container">
-			<h1><?= $movie[title] ?></h1>
-			<h4><?= $movie[year] ?>&ensp;&bull;&ensp;<?= $movie[rated] ?>&ensp;&bull;&ensp;<?= $movie[length] ?>min</h4>
+
+			<div class="movies-container">
+
+				<?php foreach ($movies as $movie): ?>
+					<div class="movie-card">
+						<div class="title-container">
+							<div class="title-container--left">
+								<h1><?= $movie[title] ?></h1>
+								<h4><?= $movie[year] ?>&ensp;&bull;&ensp;<?= $movie[rated] ?>&ensp;&bull;&ensp;<?= $movie[length] ?>min</h4>
+							</div>
+							<div class="title-container--right">
+								<h2 class="movie-score"><?= $movie[score] ?></h2>
+							</div>
+						</div>
+						<hr>
+						<p><?= $movie[description] ?></p>
+					</div>
+				<?php endforeach; ?>
+				
+			</div>
 
 		</div>
 	</main>

@@ -1,3 +1,7 @@
+* {
+	box-sizing: border-box;
+}
+
 body {
 	margin: 0;
 	font-family: Roboto, Arial, sans-serif;
@@ -35,7 +39,7 @@ nav {
 }
 
 .logo img {
-	height: 30px;
+	height: 60px;
 	padding: 15px 0;
 }
 
@@ -45,16 +49,78 @@ main {
 	display: flex;
 	justify-content: center;
 	min-height: calc(100vh - 120px);
+	background-color: gainsboro;
 }
 
 .main-container {
 	width: 1080px;
+	margin: 1.5rem 0;
+}
+
+.main-container h1 {
+	margin: 0;
+}
+
+.main-container h4 {
+	margin: 0.5rem 0 0.75rem 0;
+	font-weight: normal;
+	color: gray;
+}
+
+.movies-container {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+}
+
+.movie-card {
+	width: calc(50% - 0.75rem);
+	padding: 1.5rem;
+	background-color: white;
+	margin-bottom: 1.5rem;
+	border-radius: 0.5rem;
+}
+
+.movie-card p {
+	line-height: 1.5rem;
+}
+
+.title-container {
+	display: flex;
+}
+
+.title-container--left {
+	width: 80%;
+}
+
+.title-container--right {
+	width: 20%;
+	display: flex;
+	justify-content: right;
+	align-items: flex-start;
+}
+
+.movie-score {
+	margin: 0;
+	padding: 0.5rem 0.75rem;
+	font-size: 2.5rem;
+	border: 2px solid #632e99;
+	border-radius: 0.5rem;
+	text-align: center;
+	display: inline-block;
+}
+
+hr {
+	border: none;
+	height: 2px;
+	background: rgb(99,46,153);
+	background: linear-gradient(90deg, rgba(99,46,153,1) 0%, rgba(255,255,255,1) 75%);
 }
 
 /* ---- ---- footer styles ---- ---- */
 
 footer {
-	background-color: gainsboro;
+	background-color: white;
 	height: 60px;
 	line-height: 60px;
 	text-align: center;

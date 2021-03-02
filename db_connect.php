@@ -1,14 +1,16 @@
 <?php
 
+// variables for the connect function
 $host = 'localhost';
 $user = 'chad';
 $pw = 'orionrigel';
 $db = 'revue';
 
-// create the connection
-$conn = mysqli_connect($host, $user, $pw, $db);
+// open a new connection to the MySQL server
+$conn = new mysqli($host, $user, $pw, $db);
 
-// check the connection
-if (!$conn) {
-	die('Connection failed: ' . mysqli_connect_error());
+// check the connection for errors
+if ($conn -> connect_errno) {
+	echo "Failed to connect to MySQL: " . $conn -> connect_error;
+	exit();
 }
