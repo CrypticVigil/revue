@@ -2,40 +2,6 @@
 
 include 'db_connect.php';
 
-// $email = $crust = '';
-// $toppings = [];
-// $error = false;
-
-// if (filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) {
-// 	echo 'Email address is valid.';
-// 	$email = mysqli_real_escape_string($conn, $_POST['email']);
-// } else {
-// 	echo 'Email address is not valid.';
-// 	$error = true;
-// }
-// $crust = $_POST['crust'];
-
-// for ($i = 1; $i < 5; $i++) {
-// 	array_push($toppings, $_POST["topping$i"]);
-// }
-
-// $toppings = array_filter($toppings);
-
-// if (!$error) {
-// 	$topString = implode(', ', $toppings);
-
-// 	// create SQL query
-// 	$sql = "INSERT INTO orders (email, crust, toppings) VALUES ('$email', '$crust', '$topString')";
-
-// 	// save to database and check for errors
-// 	if (mysqli_query($conn, $sql)) {
-// 		// redirect to home page
-// 		header('Location: index.php');
-// 	} else {
-// 		echo 'query error: ' . mysqli_error($conn);
-// 	}
-// }
-
 $title = $year = $rated = $length = $score = $description = '';
 $error = false;
 
@@ -131,7 +97,7 @@ if (isset( $_POST['submit'] )) {
 					<label for="description">Description</label>
 					<input type="text" name="description" id="description" value="<?= $description ?>" >
 					<br />
-					<input type='submit' name='submit' value="Add Movie">
+					<input type='submit' name='submit' class="submit-button" value="Add Movie">
 				</form>
 			</div>
 		</div>

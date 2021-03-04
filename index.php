@@ -8,6 +8,22 @@ $sql = "SELECT * FROM movies";
 $result = mysqli_query($conn, $sql);
 $movies = mysqli_fetch_all($result, MYSQLI_ASSOC);
 
+// delete a movie
+if (isset( $_POST['submit'] )) {
+	$id = $_POST['movie_id'];
+
+	$sql = "DELETE FROM movies WHERE id = '$id'";
+
+	// update the database and check for errors
+	if ($conn -> query($sql)) {
+		// redirect to home page
+		header('Location: index.php');
+	} else {
+		echo 'query error: ' . mysqli_error($conn);
+	}
+
+}
+
 ?>
 
 <!doctype html>
@@ -34,6 +50,10 @@ $movies = mysqli_fetch_all($result, MYSQLI_ASSOC);
 						</div>
 						<hr>
 						<p><?= $movie[description] ?></p>
+						<form action="index.php" method="post">
+							<input type="hidden" name="movie_id" value="<?= $movie['id'] ?>">
+							<input type='submit' name='submit' class="submit-button" value="Delete Movie">
+						</form>
 					</div>
 				<?php endforeach; ?>
 				
