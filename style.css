@@ -58,7 +58,7 @@ main {
 }
 
 .main-container h1 {
-	margin: 0;
+	margin: -0.25rem 0 0 0;
 }
 
 .main-container h4 {
@@ -115,6 +115,22 @@ hr {
 	height: 2px;
 	background: rgb(99,46,153);
 	background: linear-gradient(90deg, rgba(99,46,153,1) 0%, rgba(255,255,255,1) 75%);
+}
+
+/* ---- ---- add movie page styles ---- ---- */
+
+.add-container {
+	border-radius: 0.5rem;
+	background-color: white;
+	padding: 1.5rem;
+}
+
+.add-container h2 {
+	margin: 0;
+}
+
+.add-container label {
+	line-height: 2rem;
 }
 
 /* ---- ---- footer styles ---- ---- */
