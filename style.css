@@ -35,7 +35,7 @@ nav {
 
 .nav-container a:hover {
 	text-decoration: underline;
-	color: red;
+	color: gold;
 }
 
 .logo img {
@@ -54,7 +54,7 @@ main {
 
 .main-container {
 	width: 1080px;
-	margin: 1.5rem 0;
+	margin: 1.5rem 0 0 0;
 }
 
 .main-container h1 {
@@ -143,6 +143,8 @@ hr {
 	border-radius: 0.5rem;
 	background-color: white;
 	padding: 1.5rem;
+	width: 50%;
+	margin: 0 auto;
 }
 
 .add-container h2 {
@@ -151,6 +153,19 @@ hr {
 
 .add-container label {
 	line-height: 2rem;
+}
+
+.add-movie--input {
+	padding: 0.5rem;
+	width: 100%;
+	border: 1px solid gainsboro;
+	border-radius: 0.5rem;
+	margin-bottom: 0.75rem;
+}
+
+textarea {
+	width: 100%;
+	margin-bottom: 0.5rem;
 }
 
 /* ---- ---- footer styles ---- ---- */
