@@ -5,7 +5,25 @@ include 'db_connect.php';
 $title = $year = $rated = $length = $score = $description = '';
 $error = false;
 
-if (isset( $_POST['submit'] )) {
+if (isset( $_POST['edit'] )) {
+
+	$id = $_POST['movie_id'];
+
+	// pull the selected movie from the movies table
+	$sql = "SELECT * FROM movies WHERE id='$id'";
+	$result = mysqli_query($conn, $sql);
+	$movie = mysqli_fetch_array($result, MYSQLI_ASSOC);
+
+	$title = $movie[title];
+	$year = $movie[year];
+	$rated = $movie[rated];
+	$length = $movie[length];
+	$score = $movie[score];
+	$description = $movie[description];
+
+} elseif (isset( $_POST['submit'] )) {
+
+	$id = $_POST['movie_id'];
 
 	// check if each piece of data has been entered and escape special characters
 
@@ -53,9 +71,9 @@ if (isset( $_POST['submit'] )) {
 
 	if (!$error) {
 		// create SQL query
-		$sql = "INSERT INTO movies (title, score, year, rated, length, description) VALUES ('$title', '$score', '$year', '$rated', '$length', '$description')";
+		$sql = "UPDATE movies SET title='$title', year='$year', rated='$rated', length='$length', score='$score', description='$description' WHERE id='$id'";
 
-		// save to database and check for errors
+		// update the database and check for errors
 		if ($conn -> query($sql)) {
 			// redirect to home page
 			header('Location: index.php');
@@ -63,7 +81,7 @@ if (isset( $_POST['submit'] )) {
 			echo 'query error: ' . mysqli_error($conn);
 		}
 	}
-	
+
 }
 
 ?>
@@ -79,7 +97,7 @@ if (isset( $_POST['submit'] )) {
 			<div class="add-container">
 				<h2>Add A Movie</h2>
 				<hr>
-				<form action="addMovie.php" method="post">
+				<form action="editMovie.php" method="post">
 					<label for="title">Movie Title</label><br/>
 					<input type="text" name="title" id="title" value="<?= $title ?>" class="add-movie--input" >
 					<br />
@@ -98,7 +116,8 @@ if (isset( $_POST['submit'] )) {
 					<label for="description">Description</label><br/>
 					<textarea name="description" id="description" rows=5 ><?= $description ?></textarea>
 					<br />
-					<input type='submit' name='submit' class="submit-button" value="Add Movie">
+					<input type="hidden" name="movie_id" value="<?= $movie['id'] ?>">
+					<input type='submit' name='submit' class="submit-button" value="Update Movie">
 				</form>
 			</div>
 		</div>

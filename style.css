@@ -120,10 +120,22 @@ hr {
 	margin: 0.625rem 0;
 }
 
+.movie-card--buttons {
+	display: flex;
+}
+
+.movie-card--buttons form {
+	width: 50%;
+}
+
+.movie-card--buttons form:not(:last-child) {
+	margin-right: 1.5rem;
+}
+
 .submit-button {
-	width: 200px;
+	width: 100%;
 	height: 2.5rem;
-	margin-top: 1rem;
+	margin: 1rem 1.5rem 0 0;
 	border: 2px solid #632e99;
 	border-radius: 0.5rem;
 	background-color: white;

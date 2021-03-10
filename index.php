@@ -50,10 +50,16 @@ if (isset( $_POST['submit'] )) {
 						</div>
 						<hr>
 						<p><?= $movie[description] ?></p>
-						<form action="index.php" method="post">
-							<input type="hidden" name="movie_id" value="<?= $movie['id'] ?>">
-							<input type='submit' name='submit' class="submit-button" value="Delete Movie">
-						</form>
+						<div class="movie-card--buttons">
+							<form action="editMovie.php" method="post">
+								<input type="hidden" name="movie_id" value="<?= $movie['id'] ?>">
+								<input type='submit' name='edit' class="submit-button" value="Edit Movie">
+							</form>
+							<form action="index.php" method="post">
+								<input type="hidden" name="movie_id" value="<?= $movie['id'] ?>">
+								<input type='submit' name='submit' class="submit-button" value="Delete Movie">
+							</form>
+						</div>
 					</div>
 				<?php endforeach; ?>
 				
