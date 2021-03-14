@@ -41,7 +41,7 @@ if (isset( $_POST['submit'] )) {
 					<div class="movie-card">
 						<div class="title-container">
 							<div class="title-container--left">
-								<h1><?= $movie[title] ?></h1>
+								<a class="movie-title" href="<?= "movie.php?id=" . $movie['id'] ?>"><?= $movie[title] ?></a>
 								<h4><?= $movie[year] ?>&ensp;&bull;&ensp;<?= $movie[rated] ?>&ensp;&bull;&ensp;<?= $movie[length] ?>min</h4>
 							</div>
 							<div class="title-container--right">
@@ -49,17 +49,15 @@ if (isset( $_POST['submit'] )) {
 							</div>
 						</div>
 						<hr>
-						<p><?= $movie[description] ?></p>
-						<div class="movie-card--buttons">
-							<form action="editMovie.php" method="post">
-								<input type="hidden" name="movie_id" value="<?= $movie['id'] ?>">
-								<input type='submit' name='edit' class="submit-button" value="Edit Movie">
-							</form>
-							<form action="index.php" method="post">
-								<input type="hidden" name="movie_id" value="<?= $movie['id'] ?>">
-								<input type='submit' name='submit' class="submit-button" value="Delete Movie">
-							</form>
-						</div>
+						<p><?php
+
+							if (strlen($movie[description]) >= 240 ) {
+								echo substr($movie[description], 0, 240) . '...';
+							} else {
+								echo $movie[description];
+							}
+
+						?></p>
 					</div>
 				<?php endforeach; ?>
 				

@@ -76,7 +76,7 @@ if (isset( $_POST['edit'] )) {
 		// update the database and check for errors
 		if ($conn -> query($sql)) {
 			// redirect to home page
-			header('Location: index.php');
+			header("Location: movie.php?id=$id");
 		} else {
 			echo 'query error: ' . mysqli_error($conn);
 		}
